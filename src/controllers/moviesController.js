@@ -11,7 +11,9 @@ const moviesController = {
             })
     },
     detail:(req, res)=>{
-        db.Movie.findByPk(req.params.id)
+        db.Movie.findByPk(req.params.id,{
+            include: [{association: "genres"},{association: "actors"}]
+          })
             .then(movie=>{
                 res.render('moviesDetail', {movie})
             })
@@ -38,6 +40,56 @@ const moviesController = {
             return res.redirect('/movies')  
         })
         .catch((err) => console.error(err))
+    },
+    edit: function(req, res) {
+        let movieId = req.params.id;
+
+        Movies.findByPk(movieId)
+        .then(Movie => {
+            return res.render('moviesEdit',{
+                Movie
+            })
+        })
+        .catch(err => console.error(err));   
+    },
+    update: function (req, res){
+        let movieId = req.params.id;
+
+        Movies.update({
+            title: req.body.title,
+            rating: req.body.rating,
+            awards: req.body.awards,
+             release_date: req.body.release_date,
+            length: req.body.length
+        }, {
+            where: {
+                id:movieId
+            }
+        })
+            .then(() => {
+                return res.redirect('/movies')
+            })
+            .catch(err => console.error(err));   
+    },
+    delete:  function(req, res) {
+        let movieId = req.params.id;
+
+        Movies.findByPk(movieId)
+        .then(Movie => {
+            return res.render('moviesDelete',{
+                Movie
+            })
+        })
+        .catch(err => console.error(err));   
+    },
+    destroy: function (req, res){
+        let movieId = req.params.id;
+
+        Movies.destroy({
+            where: { id: movieId },
+        })
+        .then(() => res.redirect('/movies'))
+        .catch(err => console.error(err));   
     }
 }
 
