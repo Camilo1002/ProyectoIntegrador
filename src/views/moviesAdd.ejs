@@ -1,37 +1,95 @@
 <!DOCTYPE html>
 <html lang="es">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Movie add</title>
-    <link rel='stylesheet' href='/css/style.css' />
-</head>
+    <link rel="stylesheet" href="/css/style.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
 
-<body>
-    
-    <h1 class="titulo">Agregar Película</h1>
-    <br>
-    <section class="formulario">
-        <form action="/movies/create" method="POST">
-            <label for="title">Title </label>
-            <p><input type="text" name="title" id="" required></p>
-            <label for="rating">Rating </label>
-            <p><input type="number" name="rating" id="" required> </p>
-            <label for="awards">Awards </label>
-            <p><input type="number" name="awards" id="" required></p>
-            <label for="release_date">Release date </label>
-            <p><input type="date" name="release_date" id="" required></p>
-            <label for="length">Length </label>
-            <p><input type="number" name="length" id="" required></p>
+  <body class="min-h-screen pt-5 bg-gradient-to-b from-red-500 to-white">
+    <div class="container mx-auto">
+      <h1 class="text-4xl text-center font-bold text-white">
+        Agregar Película
+      </h1>
 
-            <br>
-            <p> <button class="botonAgregar" type="submit">Agregar</button>
-            
-            <a  class="botonVolver" href="/movies">Listado de Películas</a></p>
-        </form>
-    </section>
-    
-</body>
+      <form
+        action="/movies/create"
+        method="POST"
+        class="flex flex-col items-center gap-3 max-w-md py-3 mx-auto bg-white border-2 border-white-500 rounded-lg mt-10 shadow-lg"
+      >
+        <label for="title" class="block">
+          <span class="block text-sm font-medium text-slate-700 mb-2"
+            >Titulo: </span
+          ><span></span>
+          <input
+            type="text"
+            name="title"
+            id="title"
+            required
+            class="p-1 rounded-md border-2 border-red-400"
+          />
+        </label>
+        <label for="rating" class="block">
+          <span class="block text-sm font-medium text-slate-700 mb-2"
+            >Calificación:
+          </span>
+          <input
+            type="number"
+            name="rating"
+            id="rating"
+            required
+            class="p-1 rounded-md border-2 border-red-400"
+          />
+        </label>
+        <label for="awards" class="block">
+          <span class="block text-sm font-medium text-slate-700 mb-2"
+            >Premios:
+          </span>
+          <input
+            type="number"
+            name="awards"
+            id="awards"
+            required
+            class="p-1 rounded-md border-2 border-red-400"
+          />
+        </label>
+        <label for="release_date" class="block">
+          <span class="block text-sm font-medium text-slate-700 mb-2"
+            >Fecha de estreno:
+          </span>
+          <input
+            type="date"
+            name="release_date"
+            id="release_date"
+            required
+            class="p-1 rounded-md border-2 border-red-400"
+          />
+        </label>
+        <label for="length" class="block">
+          <span class="block text-sm font-medium text-slate-700 mb-2"
+            >Duración:
+          </span>
+          <input
+            type="number"
+            name="length"
+            id="length"
+            class="p-1 rounded-md border-2 border-red-400"
+            required
+          />
+        </label>
 
+        <button type="submit" class="bg-blue-400 p-2 rounded-md text-white">
+          Agregar
+        </button>
+
+        <div class="flex gap-4">
+          <a href="/movies" class="bg-blue-400 p-2 rounded-md text-white"
+            >Pagina principal</a
+          >
+        </div>
+      </form>
+    </div>
+  </body>
 </html>

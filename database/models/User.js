@@ -19,7 +19,6 @@ module.exports = (sequelize, DataTypes) =>{
         remember_token: {
             type: DataTypes.STRING,
         }
-        
 
     };
     let config = {

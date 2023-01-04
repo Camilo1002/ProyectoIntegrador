@@ -1,27 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Listado de Películas</title>
-    <link rel='stylesheet' href='/css/style.css' />
+    <link rel="stylesheet" href="/css/style.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
 
-</head>
-
-<body>
-    
-    <h1>LISTADO DE PELÍCULAS</h1>
-    <ul>
-        <% for( let i = 0; i < movies.length; i++ ) { %>
-        <li>
-            <a href="/movies/detail/<%= movies[i].id %>"><%= movies[i].title %></a>
-        </li>
-        <% } %>
-
-    </ul>
-
-    <a href="/movies/add"><button type="submit">Agregar una nueva pelicula</button><br><br></a>
-</body>
-
+  <body>
+    <div class="mx-auto">
+      <div class="bg-red-400 py-2 mb-5">
+        <h1 class="font-bold text-2xl text-center text-white">BIENVENIDOS AL CINE!!</h1>
+      </div>
+      <div class="container mx-auto">
+        <ul class="grid grid-cols-5 gap-4 mb-7">
+          <% for( let i = 0; i < movies.length; i++ ) { %>
+          <li class="overflow-hidden border-2 bg-white rounded-md shadow-sm hover:shadow-lg hover:-translate-y-2 transition-all ease-out duration-300">
+            <a href="/movies/detail/<%= movies[i].id %>" class="p-3 block w-full h-full flex justify-center items-center">
+              <%= movies[i].title %>
+            </a>
+          </li>
+          <% } %>
+        </ul>
+      
+      <div class="flex flex-col items-center gap-2 text-center">
+        <a href="/movies/add" class="bg-red-500 text-white rounded-md shadow p-2 block w-fit mx-auto hover:shadow-lg hover:-translate-y-2 transition-all ease-out duration-300">
+          Agregar una nueva pelicula
+        </a>
+        <a href="/users/login" class="bg-blue-600 text-white p-2 rounded-md w-60">Ingresar</a>
+        <a href="/users/register" class="bg-red-500 text-white p-2 rounded-md w-60">Registrarse</a>
+      </div>
+      </div>
+    </div>
+  </body>
 </html>

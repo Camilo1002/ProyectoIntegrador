@@ -1,21 +1,67 @@
-<html lang="es">
-<link rel="stylesheet" type="text/css" href="../../css/styles.css"/>
-<h1>Register</h1>
-<form action="/users/register" method="POST">
-    <body>
-    <label for="name">Nombre:</label><br>
-        <input type="text" name="name" id="name" ><br>
-       
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="../../css/styles.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="min-h-screen pt-5 bg-gradient-to-b from-red-500 to-white">
+    <div class="container mx-auto">
+      <h1 class="text-4xl text-center font-bold text-white">Register</h1>
+      <form
+        action="/users/register"
+        method="POST"
+        class="flex flex-col items-center gap-3 max-w-md py-3 mx-auto bg-white border-2 border-white-500 rounded-lg mt-10 shadow-lg"
+      >
+        <label for="name" class="block">
+          <span class="block text-sm font-medium text-slate-700 mb-2"
+            >Nombre:</span
+          >
+          <input
+            type="text"
+            name="name"
+            id="name"
+            class="p-1 rounded-md border-2 border-red-400"
+          />
+        </label>
 
-        <label for="email">Correo electrónico:</label><br>
-        <input type="email" name="email" id="email" >
-        
-        <br>
-        <label for="password">Contraseña:</label><br>
-        <input type="password" name="password" id="password" ><br>
-        
-        <button type="submit">Registrarse</button><br>
-        </form>
-        <a href="/movies"><button type="submit">Regresar</button></a>         
+        <label class="block" for="email">
+          <span class="block text-sm font-medium text-slate-700 mb-2"
+            >Correo electrónico</span
+          >
+          <input
+            type="email"
+            id="email"
+            name="email"
+            class="p-1 rounded-md border-2 border-red-400"
+          />
+        </label>
+
+        <label class="block" for="password">
+          <strong class="block text-sm font-medium text-slate-700 mb-2"
+            >Contraseña</strong
+          >
+          <input
+            type="password"
+            name="password"
+            id="password"
+            class="p-1 rounded-md border-2 border-red-400"
+          />
+        </label>
+
+        <button type="submit" class="bg-blue-400 p-2 rounded-md text-white">
+          Registrarse
+        </button>
+
+        <div class="flex gap-4">
+          <a href="/movies" class="bg-blue-400 p-2 rounded-md text-white"
+            >Regresar</a
+          >
+        </div>
+      </form>
+    </div>
   </body>
-  </html>
+</html>

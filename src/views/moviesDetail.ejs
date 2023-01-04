@@ -1,41 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= movie.title %> </title>
-    <link rel='stylesheet' href='/css/style.css' />
-
-</head>
-<body>
-    
-    <h1><%= movie.title %> </h1>    
-    <br>
-    <p>Titulo: <%= movie.title %> </p>
-    <p>RATING: <%= movie.rating %> </p>
-    <p>AWARDS: <%= movie.awards %> </p>
-    <p>LENGTH: <%= movie.length + ' min'%> </p>
-    <p>RELEASE DATE: <%= movie.release_date %> </p>
-
-    <% if(movie.genres){%> 
-        <div>Genero: <%=movie.genres.name%></div>
-        <%} %>
-    <div>Actores: 
-        <ul>
-            <% for (let i=0; i<movie.actors.length; i++){ %>
-                <li>
-                    <%= movie.actors[i].first_name %> <%= movie.actors[i].last_name %>
-                    
-                </li>
-                <% } %> 
-         </ul>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= movie.title %></title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <div class="bg-red-400 py-2 mb-5 text-white">
+    <h1 class="text-4xl font-bold text-center mb-3"><%= movie.title %></h1>
     </div>
-    <br>
-    <p><a  class="botonVolver" href="/movies">Listado de Películas</a></p>
+    <div class="container mx-auto">
+      <div class="flex flex-col gap-4 mb-7">
+        <p><strong>Titulo:</strong> <%= movie.title %></p>
+        <p><strong>CALIFICACÓN:</strong> <%= movie.rating %></p>
+        <p><strong>PREMIOS:</strong> <%= movie.awards %></p>
+        <p><strong>DURACIÓN:</strong> <%= movie.length + ' min'%></p>
+        <p><strong>FECHA DE ESTRENO:</strong> <%= movie.release_date %></p>
 
-    <a href="/movies/edit/<%= movie.id %>"><button type="submit">Editar</button><br><br></a>
-    <a href="/movies/delete/<%= movie.id %>"><button type="submit">Eliminar</button><br><br></a>
-   
+        <% if(movie.genres) { %>
+        <div><strong>Genero</strong>: <%=movie.genres.name%></div>
+        <%} %>
+        <div>
+          <strong>Actores:</strong>
+          <ul class="flex gap-4">
+            <% for ( let i=0; i < movie.actors.length; i++ ) { %>
+            <li class="bg-blue-600 text-white rounded-md p-2">
+              <%= movie.actors[i].first_name %> <%= movie.actors[i].last_name %>
+            </li>
+            <% } %>
+          </ul>
+        </div>
+      </div>
+      <div class="flex flex-col items-center gap-2 text-center">
+        <a class="botonVolver bg-blue-400 text-white p-2 rounded-md w-60" href="/movies">Pagina principal</a>
 
-</body>
+        <a href="/movies/edit/<%= movie.id %>" class="bg-blue-600 text-white p-2 rounded-md w-60">Editar</a>
+        <a href="/movies/delete/<%= movie.id %>" class="bg-red-500 text-white p-2 rounded-md w-60">Eliminar</a>
+      </div>
+    </div>
+  </body>
 </html>

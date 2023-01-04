@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 
+
 const session = require("express-session");
 const cookieParser =  require("cookie-parser");
 const indexRouter = require('./routes/index');
@@ -11,13 +12,13 @@ const genresRoutes = require('./routes/genresRoutes');
 const usersRoutes = require('./routes/usersRoutes');
 const app = express();
 
-// view engine setup
+
 app.set('views', path.resolve(__dirname, './views'));
 app.set('view engine', 'ejs');
 
 app.use(express.static(path.resolve(__dirname, '../public')));
 
-//URL encode  - Para que nos pueda llegar la información desde el formulario al req.body
+
 app.use(express.urlencoded({ extended: false }));
 app.use(session({
     secret: "Secreto",
@@ -31,6 +32,8 @@ app.use('/', indexRouter);
 app.use(moviesRoutes);
 app.use(genresRoutes);
 app.use(usersRoutes);
+
+
 
 app.listen('3001', () => console.log('Servidor corriendo en el puerto 3001'));
 

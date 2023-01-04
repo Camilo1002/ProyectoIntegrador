@@ -1,28 +1,26 @@
 <!DOCTYPE html>
 <html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Eliminar</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Borrado de la Película</title>
-    <link rel="stylesheet" href="/css/style.css">
-</head>
+  <body>
+    <div class="bg-red-400 py-2 mb-5">
+    <h1 class="font-bold text-2xl text-center text-white">
+      Estas seguro de querer borrar esta película: <%= Movie.title %>???
+    </h1>
+</div>
 
-<body>
-    <figure>
-        <img src="/img/logo-DH.png" alt="Logo Digital House">
-      </figure>
-    <h1>Estas seguro de querer borrar esta película: <%= Movie.title %>???</h1>
-    <p>
-        <form action="/movies/delete/<%= Movie.id %>" method="POST">
-            <br>
-            <p> <button class="botonBorrar" type="submit">Elliminar</button>
-            
-            <a  class="botonVolver" href="/movies">Listado de Películas</a></p>
+    <form action="/movies/delete/<%= Movie.id %>" method="POST">
+      <div class="flex flex-col items-center gap-2 text-center">
+        <button class="bg-red-500 text-white p-2 rounded-md w-60" type="submit">Elliminar</button>
 
-        </form>
-    
-    
-</body>
-
+        <a class="bg-red-500 text-white p-2 rounded-md w-60" href="/movies">Pagina principal</a>
+      </div>
+    </form>
+  </body>
 </html>
