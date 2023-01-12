@@ -18,20 +18,41 @@
         class="flex flex-col items-center gap-3 max-w-md py-3 mx-auto bg-white border-2 border-white-500 rounded-lg mt-10 shadow-lg"
       >
         <label class="block" for="email">
-          <span class="block text-sm font-medium text-slate-700 mb-2">Correo electrónico</span>
-          <input type="email" id="email" name="email" class="p-1 rounded-md border-2 border-red-400" />
+          <span class="block text-sm font-medium text-slate-700 mb-2"
+            >Correo electrónico</span
+          >
+          <input
+            type="email"
+            id="email"
+            name="email"
+            class="p-1 rounded-md border-2 border-red-400"
+            placeholder="Correo electronico"
+            required
+          />
         </label>
 
-        
         <label class="block" for="password">
-          <strong class="block text-sm font-medium text-slate-700 mb-2">Contraseña</strong>
-          <input type="password" name="password" id="password" class="p-1 rounded-md border-2 border-red-400" />
+          <strong class="block text-sm font-medium text-slate-700 mb-2"
+            >Contraseña</strong
+          >
+          <input
+            type="password"
+            name="password"
+            id="password"
+            class="p-1 rounded-md border-2 border-red-400"
+            placeholder="Contraseña"
+            required
+          />
         </label>
 
-        <button type="submit" class="bg-blue-400 p-2 rounded-md text-white">Loguearse</button>
+        <button type="submit" class="bg-blue-400 p-2 rounded-md text-white">
+          Loguearse
+        </button>
 
         <div class="flex gap-4">
-          <a href="/movies" class="bg-blue-400 p-2 rounded-md text-white">Regresar</a>
+          <a href="/movies" class="bg-blue-400 p-2 rounded-md text-white"
+            >Regresar</a
+          >
         </div>
       </form>
     </div>
